@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Meghalaya — GI Codes Directory</title>
+<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+<style>
+:root {
+  --primary: #0b0f19;
+  --secondary: #1a2332;
+  --accent: #6caa23;
+  --accent-light: #8bc34a;
+  --accent-dark: #4a7c1a;
+  --text: #ffffff;
+  --text-light: #e4e4e4;
+  --text-muted: #b0b0b0;
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --card-border: rgba(255, 255, 255, 0.1);
+  --transition: all 0.3s ease;
+  --border-radius: 16px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Satoshi", sans-serif;
+}
+
+body {
+  background: var(--primary);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.6;
+  min-height: 100vh;
+  padding: 32px;
+}
+
+.wrap {
+  width: min(1200px, 100%);
+  margin: 0 auto;
+  animation: slideUp 0.7s ease;
+}
+
+.title {
+  font-size: clamp(28px, 3vw, 42px);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+  position: relative;
+  display: inline-block;
+}
+
+.title::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.sub {
+  color: var(--text-light);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* IMPROVED TOOLBAR DESIGN */
+.toolbar {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  position: relative;
+}
+
+.toolbar-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.toolbar-section:not(:last-child)::after {
+  content: "";
+  width: 1px;
+  height: 24px;
+  background: var(--glass-border);
+  margin-left: 4px;
+}
+
+.search-container {
+  flex: 1;
+  min-width: 280px;
+  position: relative;
+}
+
+.search-container input {
+  width: 100%;
+  padding: 12px 16px 12px 44px;
+  border-radius: 12px;
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.07);
+  color: var(--text);
+  outline: none;
+  transition: var(--transition);
+  font-size: 15px;
+}
+
+.search-container input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 18px rgba(108, 170, 35, 0.35);
+}
+
+.search-icon {
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0.7;
+  font-size: 16px;
+  color: var(--text-light);
+}
+
+.filter-group {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 16px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  background: rgba(255,255,255,0.05);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.filter-btn:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-2px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, var(--accent), var(--accent-light));
+  color: #000;
+  font-weight: 600;
+  border-color: transparent;
+}
+
+.layout-toggle {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.layout-btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--glass-border);
+  color: var(--text-light);
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layout-btn:hover {
+  background: rgba(255,255,255,0.12);
+}
+
+.layout-btn.active {
+  background: var(--accent);
+  color: #000;
+}
+
+/* Card Layout */
+.card-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.gi-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: var(--transition);
+  box-shadow: var(--glass-shadow);
+  animation: fadeIn 0.5s ease;
+}
+
+.gi-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
+.card-img {
+  height: 180px;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.gi-card:hover .card-img img {
+  transform: scale(1.05);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+.card-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border);
+  font-size: 12px;
+  background: rgba(255,255,255,0.04);
+  transition: var(--transition);
+}
+
+.category-tag {
+  background: rgba(108, 170, 35, 0.15);
+  border-color: rgba(108, 170, 35, 0.3);
+  color: var(--accent-light);
+}
+
+.gi-tag {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.card-info {
+  color: var(--text-light);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Table Layout */
+.table-layout {
+  display: none;
+}
+
+.table-container {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--glass-shadow);
+  animation: fadeIn 0.5s ease;
+}
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+thead th {
+  text-align: left;
+  font-size: 12px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  padding: 16px;
+  border-bottom: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.04);
+  font-weight: 600;
+}
+
+tbody td {
+  padding: 16px;
+  border-bottom: 1px solid var(--glass-border);
+  vertical-align: top;
+  transition: var(--transition);
+}
+
+tbody tr {
+  transition: var(--transition);
+}
+
+tbody tr:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+.product-name {
+  font-weight: 700;
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.product-details {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  background: rgba(255,255,255,0.04);
+  margin-top: 24px;
+  border-radius: var(--border-radius);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .toolbar {
+    gap: 12px;
+  }
+  
+  .toolbar-section:not(:last-child)::after {
+    display: none;
+  }
+  
+  .search-container {
+    min-width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+  
+  .toolbar-section {
+    width: 100%;
+    justify-content: space-between;
+  }
+  
+  .toolbar-section:not(:last-child)::after {
+    display: none;
+  }
+  
+  .search-container {
+    min-width: 100%;
+  }
+  
+  .filter-group {
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .filter-btn {
+    flex: 1;
+    min-width: 120px;
+    justify-content: center;
+  }
+  
+  .layout-toggle {
+    margin-left: 0;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .card-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px;
+  }
+  
+  .toolbar {
+    padding: 16px;
+  }
+  
+  .filter-btn {
+    padding: 8px 12px;
+    font-size: 13px;
+  }
+  
+  .filter-btn i {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.8s ease;
+}
+
+.fade.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <div class="toolbar">
+      <div class="toolbar-section">
+        <div class="search-container">
+          <i class="fas fa-search search-icon"></i>
+          <input id="q" type="search" placeholder="Search products, categories, GI numbers…" autocomplete="off">
+        </div>
+      </div>
+      
+      <div class="toolbar-section">
+        <div class="filter-group">
+          <button class="filter-btn active" data-filter="All">
+            <i class="fas fa-layer-group"></i> All
+          </button>
+          <button class="filter-btn" data-filter="Agricultural">
+            <i class="fas fa-seedling"></i> Agricultural
+          </button>
+          <button class="filter-btn" data-filter="Handicraft">
+            <i class="fas fa-hands"></i> Handicraft
+          </button>
+          <button class="filter-btn" data-filter="Manufactured">
+            <i class="fas fa-industry"></i> Manufactured
+          </button>
+        </div>
+      </div>
+      
+      <div class="toolbar-section">
+        <div class="layout-toggle">
+          <button class="layout-btn active" data-layout="card">
+            <i class="fas fa-grip"></i>
+          </button>
+          <button class="layout-btn" data-layout="table">
+            <i class="fas fa-list"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-layout" id="cardLayout"></div>
+    <div class="table-layout" id="tableLayout">
+      <div class="table-container">
+        <table id="giTable" role="table" aria-label="Meghalaya GI table">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th class="hide-sm">GI Application No.</th>
+              <th>Category</th>
+              <th class="hide-sm">Registration / Certificate</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="foot">
+      <span>Source: GI Registry (IP India) & Meghalaya State Govt Records</span>
+      <span id="count"></span>
+    </div>
+  </main>
+
+  <script>
+  const DATA = [
+    { 
+      product:"Khasi Mandarin", 
+      gi:"465", 
+      category:"Agricultural", 
+      info:"Certificate No. 231 • 27-Mar-2015 • NERAMAC",
+      image: "https://images.unsplash.com/photo-1547514701-42782101795e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    { 
+      product:"Memong Narang (Wild Citrus)", 
+      gi:"437", 
+      category:"Agricultural", 
+      info:"Certificate No. 236 • 13-Apr-2015 • NERAMAC",
+      image: "https://digitalgi.in/wp-content/uploads/2024/07/Memong-Narang.png"
+    },
+    { 
+      product:"Lakadong Turmeric", 
+      gi:"741", 
+      category:"Agricultural", 
+      info:"Journal 185 (Part-1) • 2024",
+      image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    { 
+      product:"Meghalaya Garo Textile (Dakmanda)", 
+      gi:"1094", 
+      category:"Handicraft", 
+      info:"Registered 30-May-2023",
+      image: "https://www.indiainch.org/wp-content/uploads/2001/06/4-12.png"
+    },
+    { 
+      product:"Meghalaya Lyrnai Pottery", 
+      gi:"1095", 
+      category:"Handicraft", 
+      info:"Registered 30-May-2023",
+      image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    { 
+      product:"Meghalaya Chubitchi (Rice-based Spirit)", 
+      gi:"1096", 
+      category:"Manufactured", 
+      info:"Registered 01-Jun-2023",
+      image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    },
+    { 
+      product:"Meghalaya Ryndia Silk Textile", 
+      gi:"1112", 
+      category:"Handicraft", 
+      info:"Registered 26-Jul-2023",
+      image: "https://www.selvedge.org/cdn/shop/articles/ryndia_lead.jpg?v=1618503243"
+    },
+    { 
+      product:"Meghalaya Khasi Handloom Products", 
+      gi:"1113", 
+      category:"Handicraft", 
+      info:"Registered 26-Jul-2023",
+      image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
+    }
+  ];
+
+  const $cardLayout = document.getElementById("cardLayout");
+  const $tableLayout = document.getElementById("tableLayout");
+  const $tbody = document.querySelector("#giTable tbody");
+  const $q = document.getElementById("q");
+  const $count = document.getElementById("count");
+  const $filterBtns = [...document.querySelectorAll(".filter-btn")];
+  const $layoutBtns = [...document.querySelectorAll(".layout-btn")];
+
+  function renderCards(rows) {
+    $cardLayout.innerHTML = "";
+    rows.forEach(r => {
+      const card = document.createElement("div");
+      card.classList.add("gi-card", "fade");
+      card.innerHTML = `
+        <div class="card-img">
+          <img src="${r.image}" alt="${r.product}">
+        </div>
+        <div class="card-content">
+          <div class="card-title">${r.product}</div>
+          <div class="card-details">
+            <span class="tag gi-tag">#${r.gi}</span>
+            <span class="tag category-tag">${r.category}</span>
+          </div>
+          <div class="card-info">${r.info}</div>
+        </div>
+      `;
+      $cardLayout.appendChild(card);
+    });
+    
+    // Trigger fade-in animation
+    setTimeout(() => {
+      document.querySelectorAll('.fade').forEach(el => {
+        el.classList.add('show');
+      });
+    }, 50);
+  }
+
+  function renderTable(rows) {
+    $tbody.innerHTML = "";
+    rows.forEach(r => {
+      const tr = document.createElement("tr");
+      tr.classList.add("fade");
+      tr.innerHTML = `
+        <td>
+          <div class="product-name">${r.product}</div>
+          <div class="product-details">
+            <span class="tag gi-tag">#${r.gi}</span>
+            <span class="tag hide-sm">${r.info.split(' • ')[0]}</span>
+          </div>
+        </td>
+        <td class="hide-sm">#${r.gi}</td>
+        <td><span class="tag category-tag">${r.category}</span></td>
+        <td class="hide-sm">${r.info}</td>`;
+      $tbody.appendChild(tr);
+    });
+    
+    // Trigger fade-in animation
+    setTimeout(() => {
+      document.querySelectorAll('.fade').forEach(el => {
+        el.classList.add('show');
+      });
+    }, 50);
+  }
+
+  function filter() {
+    const term = $q.value.trim().toLowerCase();
+    const active = document.querySelector(".filter-btn.active").dataset.filter;
+    let rows = DATA.filter(d => {
+      const hay = (d.product + " " + d.gi + " " + d.category + " " + d.info).toLowerCase();
+      const matchTerm = term ? hay.includes(term) : true;
+      const matchCat = active === "All" ? true : d.category === active;
+      return matchTerm && matchCat;
+    });
+    
+    if ($cardLayout.style.display !== "none") {
+      renderCards(rows);
+    } else {
+      renderTable(rows);
+    }
+    
+    $count.textContent = `${rows.length} item${rows.length !== 1 ? "s" : ""}`;
+  }
+
+  function switchLayout(layout) {
+    if (layout === "card") {
+      $cardLayout.style.display = "grid";
+      $tableLayout.style.display = "none";
+      filter();
+    } else {
+      $cardLayout.style.display = "none";
+      $tableLayout.style.display = "block";
+      filter();
+    }
+  }
+
+  // Event listeners
+  $q.addEventListener("input", filter);
+  $filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      $filterBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      filter();
+    });
+  });
+
+  $layoutBtns.forEach(btn => {
+    btn.addEventListener("click", () => {
+      $layoutBtns.forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      switchLayout(btn.dataset.layout);
+    });
+  });
+
+  // Initialize
+  renderCards(DATA);
+  filter();
+  
+  // Fade-in on scroll
+  const fadeElements = document.querySelectorAll(".fade");
+
+  const fadeInOnScroll = () => {
+    fadeElements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 100) {
+        el.classList.add("show");
+      }
+    });
+  };
+
+  window.addEventListener("scroll", fadeInOnScroll);
+  fadeInOnScroll();
+  </script>
+</body>
+</html>
