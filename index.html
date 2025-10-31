@@ -1,723 +1,870 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Meghalaya — GI Codes Directory</title>
-<link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Districts of Meghalaya</title>
+  <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --bg: linear-gradient(135deg, #0b0f19, #1a2332);
+      --glass: rgba(255, 255, 255, 0.08);
+      --glass-light: rgba(255, 255, 255, 0.12);
+      --border: rgba(255, 255, 255, 0.16);
+      --text: #ffffff;
+      --muted: #cbd5e1;
+      --accent: #6caa23;
+      --accent-light: #8bc34a;
+      --shadow: 0 10px 40px rgba(0, 0, 0, 0.35);
+      --radius: 18px;
+      --transition: all 0.3s ease;
+    }
 
-<style>
-:root {
-  --primary: #0b0f19;
-  --secondary: #1a2332;
-  --accent: #6caa23;
-  --accent-light: #8bc34a;
-  --accent-dark: #4a7c1a;
-  --text: #ffffff;
-  --text-light: #e4e4e4;
-  --text-muted: #b0b0b0;
-  --card-bg: rgba(255, 255, 255, 0.08);
-  --card-border: rgba(255, 255, 255, 0.1);
-  --transition: all 0.3s ease;
-  --border-radius: 16px;
-  --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Satoshi", sans-serif;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Satoshi", sans-serif;
-}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 2rem 1rem;
+      background-attachment: fixed;
+      background-size: cover;
+      overflow-x: hidden;
+    }
 
-body {
-  background: var(--primary);
-  color: var(--text);
-  overflow-x: hidden;
-  line-height: 1.6;
-  min-height: 100vh;
-  padding: 32px;
-}
+    .container {
+      width: 100%;
+      max-width: 1400px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
 
-.wrap {
-  width: min(1200px, 100%);
-  margin: 0 auto;
-  animation: slideUp 0.7s ease;
-}
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      width: 100%;
+    }
 
-.title {
-  font-size: clamp(28px, 3vw, 42px);
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  margin-bottom: 12px;
-  position: relative;
-  display: inline-block;
-}
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 25px;
+      background: linear-gradient(to right, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+      position: relative;
+      display: inline-block;
+    }
 
-.title::after {
-  content: "";
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 3px;
-  background: var(--accent);
-  border-radius: 2px;
-}
+    h1::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
 
-.sub {
-  color: var(--text-light);
-  font-size: 16px;
-  max-width: 600px;
-  margin: 0 auto;
-}
+    p.subtitle {
+      color: var(--muted);
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 100%;
+      line-height: 1.6;
+      font-size: 1.1rem;
+    }
 
-/* IMPROVED TOOLBAR DESIGN */
-.toolbar {
-  display: flex;
-  gap: 16px;
-  padding: 20px;
-  border-radius: var(--border-radius);
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  box-shadow: var(--glass-shadow);
-  position: relative;
-}
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      justify-content: center;
+      width: 100%;
+    }
 
-.toolbar-section {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
+    .search-box {
+      position: relative;
+      flex: 1;
+      min-width: 600px;
+    }
 
-.toolbar-section:not(:last-child)::after {
-  content: "";
-  width: 1px;
-  height: 24px;
-  background: var(--glass-border);
-  margin-left: 4px;
-}
+    .search-box input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3rem;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--text);
+      font-size: 1rem;
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+    }
 
-.search-container {
-  flex: 1;
-  min-width: 280px;
-  position: relative;
-}
+    .search-box input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px rgba(108, 170, 35, 0.2);
+    }
 
-.search-container input {
-  width: 100%;
-  padding: 12px 16px 12px 44px;
-  border-radius: 12px;
-  border: 1px solid var(--glass-border);
-  background: rgba(255,255,255,0.07);
-  color: var(--text);
-  outline: none;
-  transition: var(--transition);
-  font-size: 15px;
-}
+    .search-box i {
+      position: absolute;
+      left: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+    }
 
-.search-container input:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 18px rgba(108, 170, 35, 0.35);
-}
+    .filter-buttons {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
 
-.search-icon {
-  position: absolute;
-  left: 16px;
-  top: 50%;
-  transform: translateY(-50%);
-  opacity: 0.7;
-  font-size: 16px;
-  color: var(--text-light);
-}
+    .filter-btn {
+      padding: 0.8rem 1.5rem;
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--muted);
+      cursor: pointer;
+      transition: var(--transition);
+      font-size: 0.9rem;
+    }
 
-.filter-group {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
+    .filter-btn:hover, .filter-btn.active {
+      background: rgba(108, 170, 35, 0.2);
+      border-color: var(--accent);
+      color: var(--accent-light);
+    }
 
-.filter-btn {
-  padding: 10px 16px;
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
-  background: rgba(255,255,255,0.05);
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--text);
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  white-space: nowrap;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+      width: 100%;
+      margin-bottom: 3rem;
+    }
 
-.filter-btn:hover {
-  background: rgba(255,255,255,0.12);
-  transform: translateY(-2px);
-}
+    /* Redesigned Card Styles with Larger Images */
+    .card {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      transition: var(--transition);
+      cursor: pointer;
+      position: relative;
+      height: 520px;
+      display: flex;
+      flex-direction: column;
+    }
 
-.filter-btn.active {
-  background: linear-gradient(135deg, var(--accent), var(--accent-light));
-  color: #000;
-  font-weight: 600;
-  border-color: transparent;
-}
+    .card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent);
+      box-shadow: 0 15px 30px rgba(108, 170, 35, 0.25);
+      background: var(--glass-light);
+    }
 
-.layout-toggle {
-  display: flex;
-  gap: 8px;
-  margin-left: auto;
-}
+    .card-image {
+      height: 320px; /* Increased image height */
+      width: 100%;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
 
-.layout-btn {
-  padding: 10px 12px;
-  border-radius: 10px;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid var(--glass-border);
-  color: var(--text-light);
-  cursor: pointer;
-  transition: var(--transition);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    .card-image::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60%;
+      background: linear-gradient(to top, rgba(11, 15, 25, 0.9), transparent);
+    }
 
-.layout-btn:hover {
-  background: rgba(255,255,255,0.12);
-}
+    .card:hover .card-image {
+      transform: scale(1.05);
+    }
 
-.layout-btn.active {
-  background: var(--accent);
-  color: #000;
-}
+    .card-badge {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: rgba(108, 170, 35, 0.9);
+      color: white;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      z-index: 2;
+      backdrop-filter: blur(5px);
+    }
 
-/* Card Layout */
-.card-layout {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 24px;
-}
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
 
-.gi-card {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  transition: var(--transition);
-  box-shadow: var(--glass-shadow);
-  animation: fadeIn 0.5s ease;
-}
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-.gi-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
-}
+    .card h2 i {
+      font-size: 1.2rem;
+    }
 
-.card-img {
-  height: 180px;
-  overflow: hidden;
-  position: relative;
-}
+    .card-headquarters {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-.card-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: var(--transition);
-}
+    .card-headquarters i {
+      color: var(--accent);
+    }
 
-.gi-card:hover .card-img img {
-  transform: scale(1.05);
-}
+    .card p {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
 
-.card-content {
-  padding: 20px;
-}
+    .card-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
 
-.card-title {
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 8px;
-  color: var(--text);
-}
+    .card-feature {
+      background: rgba(108, 170, 35, 0.15);
+      color: var(--accent-light);
+      padding: 0.3rem 0.7rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 500;
+    }
 
-.card-details {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 12px;
-}
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
 
-.tag {
-  display: inline-block;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid var(--glass-border);
-  font-size: 12px;
-  background: rgba(255,255,255,0.04);
-  transition: var(--transition);
-}
+    .population, .area {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-.category-tag {
-  background: rgba(108, 170, 35, 0.15);
-  border-color: rgba(108, 170, 35, 0.3);
-  color: var(--accent-light);
-}
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 15, 25, 0.9);
+      z-index: 1000;
+      backdrop-filter: blur(5px);
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+    }
 
-.gi-tag {
-  background: rgba(255, 255, 255, 0.1);
-}
+    .modal-content {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      max-width: 600px;
+      width: 100%;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      position: relative;
+      animation: modalFadeIn 0.3s ease;
+    }
 
-.card-info {
-  color: var(--text-light);
-  font-size: 14px;
-  line-height: 1.5;
-}
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
 
-/* Table Layout */
-.table-layout {
-  display: none;
-}
+    .close-modal {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      color: var(--muted);
+      cursor: pointer;
+      transition: var(--transition);
+    }
 
-.table-container {
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
-  border-radius: var(--border-radius);
-  overflow: hidden;
-  box-shadow: var(--glass-shadow);
-  animation: fadeIn 0.5s ease;
-}
+    .close-modal:hover {
+      color: var(--accent);
+    }
 
-table {
-  width: 100%;
-  border-collapse: separate;
-  border-spacing: 0;
-}
+    .modal h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
 
-thead th {
-  text-align: left;
-  font-size: 12px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  padding: 16px;
-  border-bottom: 1px solid var(--glass-border);
-  background: rgba(255,255,255,0.04);
-  font-weight: 600;
-}
+    .modal p {
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
 
-tbody td {
-  padding: 16px;
-  border-bottom: 1px solid var(--glass-border);
-  vertical-align: top;
-  transition: var(--transition);
-}
+    .modal-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
 
-tbody tr {
-  transition: var(--transition);
-}
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(108, 170, 35, 0.1);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
 
-tbody tr:hover {
-  background: rgba(255,255,255,0.06);
-}
+    .feature i {
+      color: var(--accent);
+    }
 
-.product-name {
-  font-weight: 700;
-  font-size: 16px;
-  margin-bottom: 4px;
-}
+    .modal-links {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
 
-.product-details {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 8px;
-}
+    .modal-link {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.5rem;
+      background: rgba(108, 170, 35, 0.2);
+      border: 1px solid var(--accent);
+      border-radius: 30px;
+      color: var(--accent-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: var(--transition);
+      flex: 1;
+      justify-content: center;
+    }
 
-.foot {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 16px 20px;
-  color: var(--text-muted);
-  font-size: 13px;
-  background: rgba(255,255,255,0.04);
-  margin-top: 24px;
-  border-radius: var(--border-radius);
-}
+    .modal-link:hover {
+      background: var(--accent);
+      color: white;
+      transform: translateY(-3px);
+    }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .toolbar {
-    gap: 12px;
-  }
-  
-  .toolbar-section:not(:last-child)::after {
-    display: none;
-  }
-  
-  .search-container {
-    min-width: 240px;
-  }
-}
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+      padding: 1.5rem;
+      width: 100%;
+      border-top: 1px solid var(--border);
+    }
 
-@media (max-width: 768px) {
-  .toolbar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 16px;
-  }
-  
-  .toolbar-section {
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .toolbar-section:not(:last-child)::after {
-    display: none;
-  }
-  
-  .search-container {
-    min-width: 100%;
-  }
-  
-  .filter-group {
-    justify-content: center;
-    width: 100%;
-  }
-  
-  .filter-btn {
-    flex: 1;
-    min-width: 120px;
-    justify-content: center;
-  }
-  
-  .layout-toggle {
-    margin-left: 0;
-    width: 100%;
-    justify-content: center;
-  }
-  
-  .card-layout {
-    grid-template-columns: 1fr;
-  }
-}
+    .no-results {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted);
+      font-size: 1.1rem;
+    }
 
-@media (max-width: 480px) {
-  body {
-    padding: 16px;
-  }
-  
-  .toolbar {
-    padding: 16px;
-  }
-  
-  .filter-btn {
-    padding: 8px 12px;
-    font-size: 13px;
-  }
-  
-  .filter-btn i {
-    display: none;
-  }
-}
+    .no-results i {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
 
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+    /* New card enhancements */
+    .card-image-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 1.5rem;
+      z-index: 2;
+    }
 
-.fade {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all 0.8s ease;
-}
+    .card-title-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+    }
 
-.fade.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
+    .card-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: white;
+      margin-bottom: 0.5rem;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-headquarters-overlay {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .card-content-compact {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: space-between;
+    }
+
+    .card-description {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+
+    .card-stats {
+      display: flex;
+      justify-content: space-between;
+      margin-top: auto;
+      font-size: 0.85rem;
+      color: var(--muted);
+      padding-top: 1rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .card-stat {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.5rem; }
+      p.subtitle { font-size: 1rem; }
+      .card h2 { font-size: 1.3rem; }
+      .grid { grid-template-columns: 1fr; }
+      .controls { flex-direction: column; }
+      .search-box { min-width: 100%; }
+      .modal-links { flex-direction: column; }
+      .card-image { height: 280px; }
+      .card-links { height: 280px; }
+    }
+
+    @media (max-width: 480px) {
+      h1 { font-size: 2rem; }
+      .modal-content { padding: 1.5rem; }
+      .card { height: auto; }
+      .card-image { height: 240px; }
+      .card-links { height: 240px; }
+    }
+  </style>
 </head>
-
 <body>
-  <main class="wrap">
 
-    <div class="toolbar">
-      <div class="toolbar-section">
-        <div class="search-container">
-          <i class="fas fa-search search-icon"></i>
-          <input id="q" type="search" placeholder="Search products, categories, GI numbers…" autocomplete="off">
-        </div>
-      </div>
+  <div class="container">
+    <header>
+      <h1>Districts of Meghalaya</h1>
+      <p class="subtitle">From misty Khasi hills to the emerald Garo valleys,
+every district of Meghalaya breathes its own story.</p>
       
-      <div class="toolbar-section">
-        <div class="filter-group">
-          <button class="filter-btn active" data-filter="All">
-            <i class="fas fa-layer-group"></i> All
-          </button>
-          <button class="filter-btn" data-filter="Agricultural">
-            <i class="fas fa-seedling"></i> Agricultural
-          </button>
-          <button class="filter-btn" data-filter="Handicraft">
-            <i class="fas fa-hands"></i> Handicraft
-          </button>
-          <button class="filter-btn" data-filter="Manufactured">
-            <i class="fas fa-industry"></i> Manufactured
-          </button>
+      <div class="controls">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchInput" placeholder="Search districts...">
+        </div>
+        
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All Districts</button>
+          <button class="filter-btn" data-filter="khasi">Khasi Hills</button>
+          <button class="filter-btn" data-filter="jaintia">Jaintia Hills</button>
+          <button class="filter-btn" data-filter="garo">Garo Hills</button>
+          <button class="filter-btn" data-filter="central">Central</button>
         </div>
       </div>
-      
-      <div class="toolbar-section">
-        <div class="layout-toggle">
-          <button class="layout-btn active" data-layout="card">
-            <i class="fas fa-grip"></i>
-          </button>
-          <button class="layout-btn" data-layout="table">
-            <i class="fas fa-list"></i>
-          </button>
-        </div>
-      </div>
+    </header>
+
+    <div class="grid" id="districtsGrid">
+      <!-- Districts will be populated by JavaScript -->
     </div>
 
-    <div class="card-layout" id="cardLayout"></div>
-    <div class="table-layout" id="tableLayout">
-      <div class="table-container">
-        <table id="giTable" role="table" aria-label="Meghalaya GI table">
-          <thead>
-            <tr>
-              <th>Product</th>
-              <th class="hide-sm">GI Application No.</th>
-              <th>Category</th>
-              <th class="hide-sm">Registration / Certificate</th>
-            </tr>
-          </thead>
-          <tbody></tbody>
-        </table>
+    <footer>
+      <p>© 2023 Explore Meghalaya | The Abode of Clouds</p>
+    </footer>
+  </div>
+
+  <div class="modal" id="districtModal">
+    <div class="modal-content">
+      <span class="close-modal" id="closeModal">&times;</span>
+      <h2 id="modalTitle">District Name</h2>
+      <div class="modal-features" id="modalFeatures">
+        <!-- Features will be populated by JavaScript -->
+      </div>
+      <p id="modalDescription">District description will appear here.</p>
+      <div class="card-footer">
+        <div class="population"><i class="fas fa-users"></i> <span id="modalPopulation">Population</span></div>
+        <div class="area"><i class="fas fa-mountain"></i> <span id="modalArea">Area</span></div>
+      </div>
+      <div class="modal-links">
+        <a href="#" id="modalDestinations" class="modal-link">
+          <i class="fas fa-map-marked-alt"></i> Top Destinations
+        </a>
+        <a href="#" id="modalHospitality" class="modal-link">
+          <i class="fas fa-home"></i> Hospitality & Lifestyle
+        </a>
       </div>
     </div>
-
-    <div class="foot">
-      <span>Source: GI Registry (IP India) & Meghalaya State Govt Records</span>
-      <span id="count"></span>
-    </div>
-  </main>
+  </div>
 
   <script>
-  const DATA = [
-    { 
-      product:"Khasi Mandarin", 
-      gi:"465", 
-      category:"Agricultural", 
-      info:"Certificate No. 231 • 27-Mar-2015 • NERAMAC",
-      image: "https://images.unsplash.com/photo-1547514701-42782101795e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-    },
-    { 
-      product:"Memong Narang (Wild Citrus)", 
-      gi:"437", 
-      category:"Agricultural", 
-      info:"Certificate No. 236 • 13-Apr-2015 • NERAMAC",
-      image: "https://digitalgi.in/wp-content/uploads/2024/07/Memong-Narang.png"
-    },
-    { 
-      product:"Lakadong Turmeric", 
-      gi:"741", 
-      category:"Agricultural", 
-      info:"Journal 185 (Part-1) • 2024",
-      image: "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-    },
-    { 
-      product:"Meghalaya Garo Textile (Dakmanda)", 
-      gi:"1094", 
-      category:"Handicraft", 
-      info:"Registered 30-May-2023",
-      image: "https://www.indiainch.org/wp-content/uploads/2001/06/4-12.png"
-    },
-    { 
-      product:"Meghalaya Lyrnai Pottery", 
-      gi:"1095", 
-      category:"Handicraft", 
-      info:"Registered 30-May-2023",
-      image: "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-    },
-    { 
-      product:"Meghalaya Chubitchi (Rice-based Spirit)", 
-      gi:"1096", 
-      category:"Manufactured", 
-      info:"Registered 01-Jun-2023",
-      image: "https://images.unsplash.com/photo-1547595628-c61a29f496f0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-    },
-    { 
-      product:"Meghalaya Ryndia Silk Textile", 
-      gi:"1112", 
-      category:"Handicraft", 
-      info:"Registered 26-Jul-2023",
-      image: "https://www.selvedge.org/cdn/shop/articles/ryndia_lead.jpg?v=1618503243"
-    },
-    { 
-      product:"Meghalaya Khasi Handloom Products", 
-      gi:"1113", 
-      category:"Handicraft", 
-      info:"Registered 26-Jul-2023",
-      image: "https://images.unsplash.com/photo-1513519245088-0e12902e5a38?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80"
-    }
-  ];
+    // District data with additional information and image URLs
+    const districts = [
+      {
+        id: 1,
+        name: "East Khasi Hills",
+        headquarters: "Shillong",
+        region: "Khasi Hills Region",
+        description: "The most populous district of Meghalaya, home to the state capital Shillong. Known for its colonial architecture, stunning waterfalls like Elephant Falls, and the bustling capital charm. It's a hub of education and culture in the state.",
+        population: "825,000",
+        area: "2,752 sq km",
+        features: ["State Capital", "Waterfalls", "Colonial Architecture", "Educational Hub"],
+        image: "https://images.unsplash.com/photo-1592210454359-904300a4766a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tourism-of-india.com/blog/places-to-visit-in-shillong/",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 2,
+        name: "West Khasi Hills",
+        headquarters: "Nongstoin",
+        region: "Khasi Hills Region",
+        description: "Famous for its scenic villages, mysterious caves, and ancient monoliths. The district offers breathtaking landscapes and is known for its rich cultural heritage and traditional practices.",
+        population: "385,000",
+        area: "5,247 sq km",
+        features: ["Ancient Monoliths", "Caves", "Scenic Villages", "Cultural Heritage"],
+        image: "https://images.unsplash.com/photo-1549468057-5b7fa1a41d7d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g1156104-Activities-Nongstoin_West_Khasi_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 3,
+        name: "South West Khasi Hills",
+        headquarters: "Mawkyrwat",
+        region: "Khasi Hills Region",
+        description: "A relatively new district known for its rolling hills, peaceful countryside, and preservation of local heritage. It's an ideal destination for those seeking tranquility and authentic cultural experiences.",
+        population: "110,000",
+        area: "1,341 sq km",
+        features: ["Rolling Hills", "Peaceful Countryside", "Local Heritage", "Tranquility"],
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g1156104-Activities-Nongstoin_West_Khasi_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 4,
+        name: "Eastern West Khasi Hills",
+        headquarters: "Mairang",
+        region: "Khasi Hills Region",
+        description: "Home to beautiful waterfalls, traditional crafts, and spectacular hilltop views. The district showcases the natural beauty and artistic traditions of the Khasi people.",
+        population: "130,000",
+        area: "2,000 sq km",
+        features: ["Waterfalls", "Traditional Crafts", "Hilltop Views", "Natural Beauty"],
+        image: "https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g1156104-Activities-Nongstoin_West_Khasi_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 5,
+        name: "West Jaintia Hills",
+        headquarters: "Jowai",
+        region: "Jaintia Hills Region",
+        description: "Known for its sacred groves and rich tribal traditions. The district is a center of Jaintia culture with unique festivals and traditional practices that have been preserved for generations.",
+        population: "270,000",
+        area: "1,693 sq km",
+        features: ["Sacred Groves", "Tribal Traditions", "Cultural Festivals", "Traditional Practices"],
+        image: "https://images.unsplash.com/photo-1464822759844-d2d137717a81?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g297651-Activities-Jowai_Jaintia_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 6,
+        name: "East Jaintia Hills",
+        headquarters: "Khliehriat",
+        region: "Jaintia Hills Region",
+        description: "Famous for its extensive cave systems, limestone hills, and natural springs. The district is a paradise for adventure seekers and geology enthusiasts.",
+        population: "122,000",
+        area: "2,115 sq km",
+        features: ["Cave Systems", "Limestone Hills", "Natural Springs", "Adventure Tourism"],
+        image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g297651-Activities-Jowai_Jaintia_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 7,
+        name: "West Garo Hills",
+        headquarters: "Tura",
+        region: "Garo Hills Region",
+        description: "Gateway to the Garo Hills with rich tribal culture and eco-tourism opportunities. The district is known for its vibrant festivals and the Nokrek Biosphere Reserve.",
+        population: "640,000",
+        area: "3,714 sq km",
+        features: ["Tribal Culture", "Eco-Tourism", "Nokrek Biosphere", "Vibrant Festivals"],
+        image: "https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g664702-Activities-Tura_West_Garo_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 8,
+        name: "East Garo Hills",
+        headquarters: "Williamnagar",
+        region: "Garo Hills Region",
+        description: "Known for its lush forested landscapes and vibrant Garo festivals. The district offers a glimpse into the traditional lifestyle of the Garo people.",
+        population: "318,000",
+        area: "2,603 sq km",
+        features: ["Forested Landscapes", "Garo Festivals", "Traditional Lifestyle", "Natural Beauty"],
+        image: "https://images.unsplash.com/photo-1475924156734-496f6cac6ec1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g664702-Activities-Tura_West_Garo_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 9,
+        name: "South Garo Hills",
+        headquarters: "Baghmara",
+        region: "Garo Hills Region",
+        description: "Features lush forests, fascinating caves, and the Siju Wildlife Sanctuary. The district is a biodiversity hotspot with unique flora and fauna.",
+        population: "142,000",
+        area: "1,887 sq km",
+        features: ["Siju Wildlife Sanctuary", "Caves", "Biodiversity", "Forests"],
+        image: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g664702-Activities-Tura_West_Garo_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 10,
+        name: "North Garo Hills",
+        headquarters: "Resubelpara",
+        region: "Garo Hills Region",
+        description: "Famous for its orange groves, forested hills, and scenic drives. The district is known for its agricultural produce and picturesque landscapes.",
+        population: "118,000",
+        area: "1,113 sq km",
+        features: ["Orange Groves", "Forested Hills", "Scenic Drives", "Agriculture"],
+        image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g664702-Activities-Tura_West_Garo_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 11,
+        name: "South West Garo Hills",
+        headquarters: "Ampati",
+        region: "Garo Hills Region",
+        description: "Known for its serene greenery and friendly local communities. The district offers a peaceful retreat amidst nature with warm hospitality.",
+        population: "172,000",
+        area: "822 sq km",
+        features: ["Serene Greenery", "Friendly Communities", "Peaceful Retreat", "Nature"],
+        image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g664702-Activities-Tura_West_Garo_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      },
+      {
+        id: 12,
+        name: "Ri-Bhoi",
+        headquarters: "Nongpoh",
+        region: "Central Meghalaya",
+        description: "Gateway from Assam, rich in agriculture and offering spectacular hilltop views. The district is known for its pineapple cultivation and scenic beauty.",
+        population: "259,000",
+        area: "2,378 sq km",
+        features: ["Gateway from Assam", "Agriculture", "Hilltop Views", "Pineapple Cultivation"],
+        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80",
+        topDestinations: "https://www.tripadvisor.in/Attractions-g1156104-Activities-Nongstoin_West_Khasi_Hills_District_Meghalaya.html",
+        hospitality: "https://megtourism.gov.in/hotels"
+      }
+    ];
 
-  const $cardLayout = document.getElementById("cardLayout");
-  const $tableLayout = document.getElementById("tableLayout");
-  const $tbody = document.querySelector("#giTable tbody");
-  const $q = document.getElementById("q");
-  const $count = document.getElementById("count");
-  const $filterBtns = [...document.querySelectorAll(".filter-btn")];
-  const $layoutBtns = [...document.querySelectorAll(".layout-btn")];
+    // DOM elements
+    const districtsGrid = document.getElementById('districtsGrid');
+    const searchInput = document.getElementById('searchInput');
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const districtModal = document.getElementById('districtModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalDescription = document.getElementById('modalDescription');
+    const modalFeatures = document.getElementById('modalFeatures');
+    const modalPopulation = document.getElementById('modalPopulation');
+    const modalArea = document.getElementById('modalArea');
+    const modalDestinations = document.getElementById('modalDestinations');
+    const modalHospitality = document.getElementById('modalHospitality');
 
-  function renderCards(rows) {
-    $cardLayout.innerHTML = "";
-    rows.forEach(r => {
-      const card = document.createElement("div");
-      card.classList.add("gi-card", "fade");
-      card.innerHTML = `
-        <div class="card-img">
-          <img src="${r.image}" alt="${r.product}">
-        </div>
-        <div class="card-content">
-          <div class="card-title">${r.product}</div>
-          <div class="card-details">
-            <span class="tag gi-tag">#${r.gi}</span>
-            <span class="tag category-tag">${r.category}</span>
+    // Render districts
+    function renderDistricts(districtsToRender) {
+      districtsGrid.innerHTML = '';
+      
+      if (districtsToRender.length === 0) {
+        districtsGrid.innerHTML = `
+          <div class="no-results">
+            <i class="fas fa-map-marked-alt"></i>
+            <p>No districts found matching your search criteria.</p>
           </div>
-          <div class="card-info">${r.info}</div>
-        </div>
-      `;
-      $cardLayout.appendChild(card);
-    });
-    
-    // Trigger fade-in animation
-    setTimeout(() => {
-      document.querySelectorAll('.fade').forEach(el => {
-        el.classList.add('show');
-      });
-    }, 50);
-  }
-
-  function renderTable(rows) {
-    $tbody.innerHTML = "";
-    rows.forEach(r => {
-      const tr = document.createElement("tr");
-      tr.classList.add("fade");
-      tr.innerHTML = `
-        <td>
-          <div class="product-name">${r.product}</div>
-          <div class="product-details">
-            <span class="tag gi-tag">#${r.gi}</span>
-            <span class="tag hide-sm">${r.info.split(' • ')[0]}</span>
+        `;
+        return;
+      }
+      
+      districtsToRender.forEach(district => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.setAttribute('data-region', district.region.toLowerCase());
+        
+        card.innerHTML = `
+          <div class="card-image" style="background-image: url('${district.image}')">
+            <div class="card-badge">${district.region}</div>
+            <div class="card-image-overlay">
+              <div class="card-title-container">
+                <div>
+                  <div class="card-title">${district.name}</div>
+                  <div class="card-headquarters-overlay">
+                    <i class="fas fa-map-marker-alt"></i> ${district.headquarters}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </td>
-        <td class="hide-sm">#${r.gi}</td>
-        <td><span class="tag category-tag">${r.category}</span></td>
-        <td class="hide-sm">${r.info}</td>`;
-      $tbody.appendChild(tr);
-    });
-    
-    // Trigger fade-in animation
-    setTimeout(() => {
-      document.querySelectorAll('.fade').forEach(el => {
-        el.classList.add('show');
+          <div class="card-content-compact">
+            <p class="card-description">${district.description.substring(0, 120)}...</p>
+            <div class="card-features">
+              ${district.features.map(feature => `<span class="card-feature">${feature}</span>`).join('')}
+            </div>
+            <div class="card-stats">
+              <div class="card-stat"><i class="fas fa-users"></i> ${district.population}</div>
+              <div class="card-stat"><i class="fas fa-mountain"></i> ${district.area}</div>
+            </div>
+          </div>
+        `;
+        
+        card.addEventListener('click', () => openModal(district));
+        districtsGrid.appendChild(card);
       });
-    }, 50);
-  }
+    }
 
-  function filter() {
-    const term = $q.value.trim().toLowerCase();
-    const active = document.querySelector(".filter-btn.active").dataset.filter;
-    let rows = DATA.filter(d => {
-      const hay = (d.product + " " + d.gi + " " + d.category + " " + d.info).toLowerCase();
-      const matchTerm = term ? hay.includes(term) : true;
-      const matchCat = active === "All" ? true : d.category === active;
-      return matchTerm && matchCat;
+    // Open modal with district details
+    function openModal(district) {
+      modalTitle.textContent = district.name;
+      modalDescription.textContent = district.description;
+      modalPopulation.textContent = district.population;
+      modalArea.textContent = district.area;
+      modalDestinations.href = district.topDestinations;
+      modalHospitality.href = district.hospitality;
+      
+      modalFeatures.innerHTML = '';
+      district.features.forEach(feature => {
+        const featureEl = document.createElement('div');
+        featureEl.className = 'feature';
+        featureEl.innerHTML = `<i class="fas fa-check-circle"></i> ${feature}`;
+        modalFeatures.appendChild(featureEl);
+      });
+      
+      districtModal.style.display = 'flex';
+    }
+
+    // Filter and search functionality
+    function filterDistricts() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const activeFilter = document.querySelector('.filter-btn.active').dataset.filter;
+      
+      const filteredDistricts = districts.filter(district => {
+        const matchesSearch = district.name.toLowerCase().includes(searchTerm) || 
+                             district.headquarters.toLowerCase().includes(searchTerm) ||
+                             district.description.toLowerCase().includes(searchTerm);
+        
+        let matchesFilter = true;
+        if (activeFilter !== 'all') {
+          if (activeFilter === 'khasi') {
+            matchesFilter = district.region.includes('Khasi');
+          } else if (activeFilter === 'jaintia') {
+            matchesFilter = district.region.includes('Jaintia');
+          } else if (activeFilter === 'garo') {
+            matchesFilter = district.region.includes('Garo');
+          } else if (activeFilter === 'central') {
+            matchesFilter = district.region.includes('Central');
+          }
+        }
+        
+        return matchesSearch && matchesFilter;
+      });
+      
+      renderDistricts(filteredDistricts);
+    }
+
+    // Event listeners
+    searchInput.addEventListener('input', filterDistricts);
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        filterDistricts();
+      });
     });
     
-    if ($cardLayout.style.display !== "none") {
-      renderCards(rows);
-    } else {
-      renderTable(rows);
-    }
+    closeModal.addEventListener('click', () => {
+      districtModal.style.display = 'none';
+    });
     
-    $count.textContent = `${rows.length} item${rows.length !== 1 ? "s" : ""}`;
-  }
-
-  function switchLayout(layout) {
-    if (layout === "card") {
-      $cardLayout.style.display = "grid";
-      $tableLayout.style.display = "none";
-      filter();
-    } else {
-      $cardLayout.style.display = "none";
-      $tableLayout.style.display = "block";
-      filter();
-    }
-  }
-
-  // Event listeners
-  $q.addEventListener("input", filter);
-  $filterBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      $filterBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      filter();
-    });
-  });
-
-  $layoutBtns.forEach(btn => {
-    btn.addEventListener("click", () => {
-      $layoutBtns.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      switchLayout(btn.dataset.layout);
-    });
-  });
-
-  // Initialize
-  renderCards(DATA);
-  filter();
-  
-  // Fade-in on scroll
-  const fadeElements = document.querySelectorAll(".fade");
-
-  const fadeInOnScroll = () => {
-    fadeElements.forEach((el) => {
-      const rect = el.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        el.classList.add("show");
+    window.addEventListener('click', (e) => {
+      if (e.target === districtModal) {
+        districtModal.style.display = 'none';
       }
     });
-  };
 
-  window.addEventListener("scroll", fadeInOnScroll);
-  fadeInOnScroll();
+    // Initial render
+    renderDistricts(districts);
   </script>
 </body>
 </html>
