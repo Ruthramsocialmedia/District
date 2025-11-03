@@ -1,11 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script src="District.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Districts of Meghalaya</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link href="https://fonts.cdnfonts.com/css/satoshi" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container" id="districtsContainer">
+      <div class="content-wrapper">
+        <header>
+          <h1>Districts of Meghalaya</h1>
+          <p class="subtitle">
+            From misty Khasi hills to the emerald Garo valleys, every district
+            of Meghalaya breathes its own story.
+          </p>
+
+          <div class="controls">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="searchInput"
+                placeholder="Search districts..."
+              />
+            </div>
+
+            <div class="filter-buttons">
+              <button class="filter-btn active" data-filter="all">
+                All Districts
+              </button>
+              <button class="filter-btn" data-filter="khasi">
+                Khasi Hills
+              </button>
+              <button class="filter-btn" data-filter="jaintia">
+                Jaintia Hills
+              </button>
+              <button class="filter-btn" data-filter="garo">Garo Hills</button>
+              <button class="filter-btn" data-filter="central">Central</button>
+            </div>
+          </div>
+        </header>
+
+        <div class="grid" id="districtsGrid">
+          <!-- Districts will be populated by JavaScript -->
+        </div>
+
+        <footer>
+          <p>© 2025 Explore Meghalaya | The Abode of Clouds</p>
+        </footer>
+      </div>
+    </div>
+
+    <!-- District Detail Modal -->
+    <div class="modal" id="districtModal">
+      <div class="modal-content">
+        <span class="close-modal" id="closeModal">&times;</span>
+        <h2 id="modalTitle">District Name</h2>
+        <div class="modal-features" id="modalFeatures"></div>
+        <p id="modalDescription">District description will appear here.</p>
+        <div class="card-footer">
+          <div class="population">
+            <i class="fas fa-users"></i>
+            <span id="modalPopulation">Population</span>
+          </div>
+          <div class="area">
+            <i class="fas fa-mountain"></i>
+            <span id="modalArea">Area</span>
+          </div>
+        </div>
+        <div class="modal-links">
+          <a href="#" id="modalDestinations" class="modal-link">
+            <i class="fas fa-map-marked-alt"></i> Top Destinations
+          </a>
+          <a href="#" id="modalHospitality" class="modal-link">
+            <i class="fas fa-home"></i> Hospitality & Lifestyle
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Webpage Modal -->
+    <div class="webpage-modal" id="webpageModal">
+      <div class="webpage-modal-content">
+        <div class="webpage-modal-header">
+          <div class="webpage-modal-title">
+            <i class="fas fa-globe"></i>
+            <span id="webpageModalTitle">Webpage Title</span>
+          </div>
+          <div class="webpage-modal-controls">
+            <div class="webpage-modal-control" id="newTabBtn">
+              <i class="fas fa-external-link-alt"></i>
+            </div>
+            <div class="webpage-modal-control" id="closeWebpageModal">
+              <i class="fas fa-times"></i>
+            </div>
+          </div>
+        </div>
+        <div class="webpage-modal-body">
+          <iframe
+            id="webpageIframe"
+            class="webpage-iframe"
+            src=""
+            frameborder="0"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
