@@ -16,7 +16,7 @@ const districts = [
     ],
     image:
       "https://s7ap1.scene7.com/is/image/incredibleindia/elephant-falls-shillong-meghalaya-hero?qlt=82&ts=1742178199866",
-    topDestinations: "https://en.wikipedia.org/wiki/East_Khasi_Hills_district",
+    topDestinations: "https://top-destinations.netlify.app/",
     hospitality:
       "https://www.tripadvisor.in/Hotels-g297651-Jowai_Jaintia_Hills_District_Meghalaya-Hotels.html",
   },
